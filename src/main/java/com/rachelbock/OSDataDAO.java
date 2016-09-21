@@ -14,6 +14,9 @@ public class OSDataDAO {
 
     public static final String GETDATAQUERY = "SELECT * FROM os_data";
 
+    /**
+     * Method to insert an OSData object into the database.
+     */
     public void setOSData(OSData osData) {
         try(Connection connection = ConnectionPool.getConnection()) {
 
@@ -28,6 +31,9 @@ public class OSDataDAO {
         }
     }
 
+    /**
+     * Method to retrieve all of the OS Data from the database and store in a list.
+     */
     public List<OSData> getOSData() {
             List<OSData> osDataList = new ArrayList<>();
 
@@ -36,7 +42,7 @@ public class OSDataDAO {
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery(GETDATAQUERY);
 
-            if (resultSet.next()) {
+            while (resultSet.next()) {
                 OSData osData = new OSData(
                         resultSet.getString("os_name"),
                         resultSet.getString("os_version"),

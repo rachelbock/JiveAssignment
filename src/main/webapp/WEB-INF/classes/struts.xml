@@ -7,9 +7,12 @@
     <package name="OSData" extends="struts-default">
 
         <action name="data_entry"
-                class="com.rachelbock.OSDataAction"
+                class="com.rachelbock.OsDataAction"
                 method="execute">
-            <result name="success">/OSData.jsp</result>
+            <result name="success">/results.jsp</result>
+            <result name="input">/entry.jsp</result>
         </action>
+
     </package>
+
 </struts>

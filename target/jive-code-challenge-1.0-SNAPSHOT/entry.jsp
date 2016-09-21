@@ -3,19 +3,34 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<title>OS Data</title>
+<style>
+
+h1 {
+    font-family: times new roman;
+    text-decoration: underline;
+}
+
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Register</title>
+
+<s:head/>
+
 </head>
+
 <body>
+
 <h1>Operating System Data</h1>
-   <form action="data_entry">
-      <label for="osName">OS: </label>
-      <input type="text" name="osName"/><br/>
-      <label for="osVersion">OS Version: </label>
-      <input type="text" name="osVersion"/><br/>
-      <label for="notes">Notes: </label>
-      <input type="text" name="notes"/>
-      <input type="submit" value="Submit"/>
-   </form>
+<h3>Enter the following information:</h3>
+  <s:form action="data_entry">
+      <s:textfield name="osName" label="OS Name" /><br>
+      <s:textfield name="osVersion" label="OS Version" /><br>
+      <s:textarea name="notes" label="Notes" rows="4" /><br>
+      <s:submit value="Submit"/>
+   </s:form>
+
 </body>
 </html>

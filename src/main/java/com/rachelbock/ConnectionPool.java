@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * Created by rage on 9/18/16.
+ * Provides connection to the jive_challenge database and method to get a connection as needed.
  */
 public class ConnectionPool {
 
