@@ -27,6 +27,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
+<title>OS Data Results</title>
 </head>
 <body>
 
@@ -34,7 +35,7 @@ tr:nth-child(even) {
 
 	<h1>OS Data:</h1>
 
-    <table style="width:50%">
+    <table style="width:100%">
       <tr>
         <th>OS Name</th>
         <th>OS Version</th>

@@ -12,7 +12,11 @@ h1 {
     text-decoration: underline;
 }
 
+h3 {
+    font-family: times new roman;
+}
 </style>
+<title>OS Data Entry</title>
 <s:head/>
 </head>
 <body>
@@ -20,9 +24,9 @@ h1 {
 <h1>Operating System Data</h1>
 <h3>Enter the following information:</h3>
   <s:form action="data_entry">
-      <s:textfield name="osName" label="OS Name" /><br>
-      <s:textfield name="osVersion" label="OS Version" /><br>
-      <s:textarea name="notes" label="Notes" rows="4" /><br>
+      <s:textfield name="osName" label="OS Name" />
+      <s:textfield name="osVersion" label="OS Version" />
+      <s:textarea name="notes" label="Notes" rows="4" />
       <s:submit value="Submit"/>
    </s:form>
 
