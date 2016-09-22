@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.rachelbock.example.HelloWorldTest
+Test set: com.rachelbock.DatabaseConnectionTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.347 sec

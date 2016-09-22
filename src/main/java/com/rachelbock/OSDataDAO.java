@@ -9,18 +9,19 @@ import java.util.List;
  */
 public class OSDataDAO {
 
-    public static final String SETDATAQUERY = "INSERT INTO os_data (os_name, os_version, notes) \n" +
+    public static final String SET_DATA_QUERY = "INSERT INTO os_data (os_name, os_version, notes) \n" +
             "VALUES (?, ?, ?)";
 
-    public static final String GETDATAQUERY = "SELECT * FROM os_data";
+    public static final String GET_DATA_QUERY = "SELECT * FROM os_data";
 
     /**
      * Method to insert an OSData object into the database.
      */
     public void setOSData(OSData osData) {
-        try(Connection connection = ConnectionPool.getConnection()) {
+        try (Connection connection = ConnectionPool.getConnection();
+             PreparedStatement stmt = connection.prepareStatement(SET_DATA_QUERY)
+        ) {
 
-            PreparedStatement stmt = connection.prepareStatement(SETDATAQUERY);
             stmt.setString(1, osData.getOsName());
             stmt.setString(2, osData.getOsVersion());
             stmt.setString(3, osData.getNotes());
@@ -32,15 +33,15 @@ public class OSDataDAO {
     }
 
     /**
-     * Method to retrieve all of the OS Data from the database and store in a list.
+     * Method to retrieve all of the OSData from the database and store in a list.
      */
     public List<OSData> getOSData() {
-            List<OSData> osDataList = new ArrayList<>();
+        List<OSData> osDataList = new ArrayList<>();
 
-        try(Connection connection = ConnectionPool.getConnection()) {
-
-            Statement stmt = connection.createStatement();
-            ResultSet resultSet = stmt.executeQuery(GETDATAQUERY);
+        try (Connection connection = ConnectionPool.getConnection();
+             Statement stmt = connection.createStatement();
+             ResultSet resultSet = stmt.executeQuery(GET_DATA_QUERY);
+        ) {
 
             while (resultSet.next()) {
                 OSData osData = new OSData(

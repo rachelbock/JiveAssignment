@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *Action class for OS Data Collection
+ *Action class for OS Data Collection and Display. Handles collecting data from form and provides method for getting
+ * the data back out.
  */
 public class OsDataAction extends ActionSupport {
 
     private String osName;
     private String osVersion;
     private String notes;
-    private OSDataDAO osDataDAO;
-    private List<OSData> osDataList;
+    private OSDataDAO osDataDAO = new OSDataDAO();
 
 
     /**
@@ -26,7 +26,6 @@ public class OsDataAction extends ActionSupport {
      */
     public String execute() throws Exception {
 
-        osDataDAO = new OSDataDAO();
         OSData osData = new OSData(getOsName(), getOsVersion(), getNotes());
         osDataDAO.setOSData(osData);
 
@@ -62,23 +61,18 @@ public class OsDataAction extends ActionSupport {
      * @return List of OSData to populate results page
      */
     public List<OSData> getOsDataList() {
-        osDataList = osDataDAO.getOSData();
-        return osDataList;
-    }
-
-    public void setOsDataList(List<OSData> osDataList) {
-        this.osDataList = osDataList;
+        return osDataDAO.getOSData();
     }
 
     /**
      * Method to validate that required fields are not left blank.
      */
     public void validate() {
-        if (osName.length() == 0) {
+        if (osName == null || osName.trim().length() == 0) {
             addFieldError("osName", "OS Name is required");
         }
 
-        if (osVersion.length() == 0){
+        if (osName == null || osVersion.trim().length() == 0){
             addFieldError("osVersion", "OS Version is required");
         }
     }
